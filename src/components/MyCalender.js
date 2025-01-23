@@ -1,24 +1,24 @@
 import React, { useState, useMemo } from 'react';
+import { useSelector } from 'react-redux';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import events from '../data/sampleData.json';
 import BarChart from './BarChart';
 
 const localizer = momentLocalizer(moment);
 
-// Transform sampleData.json to the events format required by react-big-calendar
 const transformEvents = (data) => {
   return Object.entries(data).flatMap(([date, dateEvents]) =>
     dateEvents.map(event => ({
-     start: new Date(date.split('-').reverse().join('-')), 
+      start: new Date(date.split('-').reverse().join('-')),
       end: new Date(date.split('-').reverse().join('-')),
-      title: JSON.stringify(event) 
+      title: JSON.stringify(event)
     }))
   );
 };
 
-const MyCalendar = () => {
+const MyCalender = () => {
+  const events = useSelector(state => state.events);
   const [selectedDate, setSelectedDate] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
   const [noData, setNoData] = useState(false);
@@ -41,7 +41,7 @@ const MyCalendar = () => {
     setNoData(false);
   };
 
-  const memoizedEvents = useMemo(() => transformEvents(events), []);
+  const memoizedEvents = useMemo(() => transformEvents(events), [events]);
 
   return (
     <div>
@@ -71,4 +71,4 @@ const MyCalendar = () => {
   );
 };
 
-export default MyCalendar;
+export default MyCalender;

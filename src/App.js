@@ -1,13 +1,31 @@
-import MyCalendar from "./components/MyCalender";
+import React, { useEffect } from "react";
+import { Provider, useDispatch } from "react-redux";
+import store from "./store/store";
+import MyCalender from "./components/MyCalender";
+import { fetchEvents } from "./actions/actions";
 import "./App.css";
 
-function App() {
+const App = () => {
+  return (
+    <Provider store={store}>
+      <MainApp />
+    </Provider>
+  );
+};
+
+const MainApp = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchEvents());
+  }, [dispatch]);
+
   return (
     <div>
       <h1>React Big Calendar with Bar Graph</h1>
-      <MyCalendar />
+      <MyCalender />
     </div>
   );
-}
+};
 
 export default App;
