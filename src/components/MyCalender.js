@@ -11,9 +11,9 @@ const localizer = momentLocalizer(moment);
 const transformEvents = (data) => {
   return Object.entries(data).flatMap(([date, dateEvents]) =>
     dateEvents.map(event => ({
-      start: new Date(date),
-      end: new Date(date),
-      title: JSON.stringify(event) // Customize this as needed
+     start: new Date(date.split('-').reverse().join('-')), 
+      end: new Date(date.split('-').reverse().join('-')),
+      title: JSON.stringify(event) 
     }))
   );
 };
