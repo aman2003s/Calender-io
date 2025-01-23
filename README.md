@@ -7,8 +7,8 @@ This project integrates React Big Calendar with dummy JSON data and displays dat
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/react-big-calendar-app.git
-   cd react-big-calendar-app
+   git clone https://github.com/aman2003s/Calender-io.git
+   cd Calender-io
 
 2. **Install dependencies:**:
    ```bash
