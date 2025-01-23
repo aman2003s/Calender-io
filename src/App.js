@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
-import { Provider, useDispatch } from "react-redux";
-import store from "./store/store";
-import MyCalender from "./components/MyCalender";
-import { fetchEvents } from "./actions/actions";
-import "./App.css";
+import React, { useEffect } from 'react';
+import { Provider, useDispatch } from 'react-redux';
+import store from './store/store';
+import MyCalender from './components/MyCalender';
+import { fetchEvents } from './actions/actions';
+import './App.css';
 
 const App = () => {
   return (

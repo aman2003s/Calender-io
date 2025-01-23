@@ -10,6 +10,6 @@ export const fetchEvents = () => {
     // Simulate fetching data from a server
     setTimeout(() => {
       dispatch(setEvents(eventsData));
-    }, 1000);
+    }, 1000); // Adding delay to simulate async fetch
   };
 };
